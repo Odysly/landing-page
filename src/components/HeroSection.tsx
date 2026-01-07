@@ -46,27 +46,14 @@ export const HeroSection = ({ userType }: HeroSectionProps) => {
             <div className="absolute inset-0 hero-gradient pointer-events-none" />
 
             {/* Floating orbs */}
-            <motion.div
-                className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full blur-3xl opacity-15"
-                animate={{
-                    background: userType === 'candidate'
-                        ? 'radial-gradient(circle, #6366f1 0%, transparent 70%)'
-                        : 'radial-gradient(circle, #3b82f6 0%, transparent 70%)',
-                    x: [0, 50, 0],
-                    y: [0, -30, 0],
-                }}
-                transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+            {/* Floating orbs - Optimized to static to prevent lag */}
+            <div
+                className={`absolute top-1/4 left-1/4 w-96 h-96 rounded-full blur-3xl opacity-15 transition-colors duration-1000 ${userType === 'candidate' ? 'bg-theme-primary' : 'bg-theme-primary'
+                    }`}
             />
-            <motion.div
-                className="absolute bottom-1/4 right-1/4 w-80 h-80 rounded-full blur-3xl opacity-10"
-                animate={{
-                    background: userType === 'candidate'
-                        ? 'radial-gradient(circle, #ec4899 0%, transparent 70%)'
-                        : 'radial-gradient(circle, #10b981 0%, transparent 70%)',
-                    x: [0, -40, 0],
-                    y: [0, 40, 0],
-                }}
-                transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+            <div
+                className={`absolute bottom-1/4 right-1/4 w-80 h-80 rounded-full blur-3xl opacity-10 transition-colors duration-1000 ${userType === 'candidate' ? 'bg-theme-accent' : 'bg-theme-accent'
+                    }`}
             />
 
             <AnimatePresence mode="wait">

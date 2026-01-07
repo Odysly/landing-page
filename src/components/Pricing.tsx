@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Check, X } from 'lucide-react';
+import { Check } from 'lucide-react';
 
 const PricingCard = ({ title, price, features, isHighlighted = false, buttonText, description }: {
     title: string;

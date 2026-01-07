@@ -2,8 +2,7 @@ import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import {
     Heart, Filter, MessageSquare,
-    Clock, Shield, Megaphone,
-    ChevronRight
+    Clock, Shield, Megaphone
 } from 'lucide-react';
 
 interface FeatureShowcaseProps {
@@ -20,12 +19,10 @@ interface Feature {
 
 const FeatureCard = ({
     feature,
-    index,
-    isReversed
+    index
 }: {
     feature: Feature;
     index: number;
-    isReversed: boolean;
 }) => {
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true, margin: "-100px" });
@@ -172,7 +169,6 @@ export const FeatureShowcase = ({ userType }: FeatureShowcaseProps) => {
                             key={feature.title}
                             feature={feature}
                             index={index}
-                            isReversed={index % 2 === 1}
                         />
                     ))}
                 </div>

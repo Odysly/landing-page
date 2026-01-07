@@ -31,9 +31,11 @@
     --theme-bg-secondary: #f4f1e8;
     --theme-text: #1c1917;
     --theme-text-muted: #57534e;
-    --theme-primary: #d97706; /* Amber 600 */
+    --theme-primary: #d97706;
+    /* Amber 600 */
     --theme-primary-glow: rgba(217, 119, 6, 0.15);
-    --theme-accent: #059669; /* Emerald 600 */
+    --theme-accent: #059669;
+    /* Emerald 600 */
     --theme-accent-glow: rgba(5, 150, 105, 0.10);
     --theme-surface: rgba(255, 255, 255, 0.6);
     --theme-border: rgba(28, 25, 23, 0.08);
@@ -60,28 +62,21 @@
   }
 }
 
-/* Noise texture overlay */
-.noise-overlay {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  opacity: 0.03;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-  z-index: 9999;
-}
+/* Noise texture overlay - REMOVED for performance */
+/* .noise-overlay { ... } */
 
-/* Glassmorphism utilities */
+/* Glassmorphism utilities - Optimized blur */
 .glass {
   background: var(--theme-glass);
-  backdrop-filter: blur(16px) saturate(180%);
-  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  backdrop-filter: blur(8px) saturate(180%);
+  -webkit-backdrop-filter: blur(8px) saturate(180%);
   border: 1px solid var(--theme-border);
 }
 
 .glass-subtle {
   background: var(--theme-glass);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
 }
 
 /* Glow effects - subtle and refined */
