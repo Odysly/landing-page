@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight, Sparkles, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, CheckCircle2 } from 'lucide-react';
 
 interface HeroSectionProps {
     userType: 'candidate' | 'employer';
@@ -8,10 +8,9 @@ interface HeroSectionProps {
 export const HeroSection = ({ userType }: HeroSectionProps) => {
     const content = {
         candidate: {
-            badge: "For ambitious talent",
             headline: "Find the job that fits",
             headlineAccent: "YOU",
-            subline: "— not the other way around",
+            subline: "not the other way around",
             description: "Stop scrolling through endless listings. Our AI matches you with roles that align with your career goals, values, and the company culture you actually want.",
             cta: "Start Your Journey",
             ctaSecondary: "See How It Works",
@@ -22,7 +21,6 @@ export const HeroSection = ({ userType }: HeroSectionProps) => {
             ],
         },
         employer: {
-            badge: "For forward-thinking teams",
             headline: "Hire faster.",
             headlineAccent: "Smarter.",
             subline: "Zero guesswork.",
@@ -40,7 +38,7 @@ export const HeroSection = ({ userType }: HeroSectionProps) => {
     const currentContent = content[userType];
 
     return (
-        <section className="relative w-full min-h-[75vh] flex flex-col justify-center px-6 md:px-12 lg:px-20 pt-10 pb-8 overflow-hidden">
+        <section className="relative w-full min-h-[75vh] flex flex-col justify-center px-6 md:px-12 lg:px-20 pt-32 pb-24 overflow-hidden">
 
             {/* Animated background gradient */}
             <div className="absolute inset-0 hero-gradient pointer-events-none" />
@@ -65,19 +63,6 @@ export const HeroSection = ({ userType }: HeroSectionProps) => {
                     className="relative z-10 max-w-7xl mx-auto w-full"
                 >
                     <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
-
-                        {/* Badge */}
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.1 }}
-                            className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass mb-8"
-                        >
-                            <Sparkles size={14} className="text-theme-primary" />
-                            <span className="text-xs font-semibold uppercase tracking-widest text-theme-text-muted">
-                                {currentContent.badge}
-                            </span>
-                        </motion.div>
 
                         {/* Headline */}
                         <motion.div
