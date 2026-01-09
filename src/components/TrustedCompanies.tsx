@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+// CSS animation used instead of Framer Motion for performance
 
 // EMPLOYER SECTION: Companies to hire talent FROM (FAANG + Consulting + Banks)
 const employerLogos = [
@@ -69,17 +69,8 @@ export const TrustedCompanies = ({ userType }: TrustedCompaniesProps) => {
                 <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-theme-bg to-transparent z-10" />
                 <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-theme-bg to-transparent z-10" />
 
-                <motion.div
-                    className="flex items-center gap-14 md:gap-16 flex-nowrap whitespace-nowrap"
-                    animate={{ x: [0, -2400] }}
-                    transition={{
-                        x: {
-                            repeat: Infinity,
-                            repeatType: "loop",
-                            duration: 50,
-                            ease: "linear",
-                        },
-                    }}
+                <div
+                    className="flex items-center gap-14 md:gap-16 flex-nowrap whitespace-nowrap marquee-scroll"
                 >
                     {displayLogos.map((logo, index) => (
                         <div
@@ -101,7 +92,7 @@ export const TrustedCompanies = ({ userType }: TrustedCompaniesProps) => {
                             </span>
                         </div>
                     ))}
-                </motion.div>
+                </div>
             </div>
         </section>
     );

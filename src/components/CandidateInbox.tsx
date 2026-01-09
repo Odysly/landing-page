@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 
 export const CandidateInbox = () => {
     return (
-        <div className="h-full bg-[#121217] border border-white/5 rounded-3xl p-6 md:p-8 flex flex-col relative overflow-hidden shadow-2xl shadow-black/50">
+        <div className="h-full bg-[#121217] border border-white/5 rounded-3xl p-6 md:p-8 flex flex-col relative shadow-2xl shadow-black/50">
             <div className="absolute bottom-0 left-0 w-64 h-64 bg-theme-accent/10 rounded-full blur-[80px] -z-10" />
 
             {/* Header */}

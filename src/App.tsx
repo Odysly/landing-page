@@ -15,13 +15,26 @@ const Navbar = () => {
   const [isEmployerSection, setIsEmployerSection] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      const employerSection = document.getElementById('employer-section');
-      if (!employerSection) return;
+    let ticking = false;
+    let lastState = false;
 
-      const rect = employerSection.getBoundingClientRect();
-      // Change theme when employer section top is at or above 80px (navbar height)
-      setIsEmployerSection(rect.top <= 80);
+    const handleScroll = () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          const employerSection = document.getElementById('employer-section');
+          if (employerSection) {
+            const rect = employerSection.getBoundingClientRect();
+            const newState = rect.top <= 80;
+            // Only update state if it changed
+            if (newState !== lastState) {
+              lastState = newState;
+              setIsEmployerSection(newState);
+            }
+          }
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });

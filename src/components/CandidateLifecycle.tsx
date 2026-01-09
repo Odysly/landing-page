@@ -29,7 +29,7 @@ export const CandidateLifecycle = () => {
     ];
 
     return (
-        <div className="h-full bg-[#121217] border border-white/5 rounded-3xl p-6 md:p-8 flex flex-col justify-center overflow-hidden relative shadow-2xl shadow-black/50">
+        <div className="h-full bg-[#121217] border border-white/5 rounded-3xl p-6 md:p-8 flex flex-col justify-center relative shadow-2xl shadow-black/50">
             <div className="absolute top-0 right-0 w-64 h-64 bg-theme-primary/10 rounded-full blur-[80px] -z-10" />
 
             <h3 className="text-xl font-display font-bold text-white mb-8">Autopilot Lifecycle</h3>
