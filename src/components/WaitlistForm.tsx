@@ -65,7 +65,7 @@ export const WaitlistForm = ({ className = '' }: WaitlistFormProps) => {
                                     if (status === 'error') setStatus('idle');
                                 }}
                                 placeholder="Enter your email"
-                                className={`w-full px-6 py-4 rounded-full bg-theme-surface/50 border caret-black ${status === 'error'
+                                className={`w-full px-6 py-4 rounded-full bg-theme-surface/50 border ${status === 'error'
                                     ? 'border-red-500/50 focus:border-red-500'
                                     : 'border-theme-border focus:border-theme-primary'
                                     } backdrop-blur-sm text-theme-text placeholder:text-theme-text-muted focus:outline-none focus:ring-2 focus:ring-theme-primary/20 transition-all`}

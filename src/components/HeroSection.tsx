@@ -1,6 +1,8 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, CheckCircle2, Calendar } from 'lucide-react';
+import { useState } from 'react';
 import { WaitlistForm } from './WaitlistForm';
+import { DemoModal } from './DemoModal';
 
 interface HeroSectionProps {
     userType: 'candidate' | 'employer';
@@ -9,6 +11,8 @@ interface HeroSectionProps {
 const calendlyLink = import.meta.env.VITE_CALENDLY_LINK || '#';
 
 export const HeroSection = ({ userType }: HeroSectionProps) => {
+    const [showDemoModal, setShowDemoModal] = useState(false);
+
     const content = {
         candidate: {
             headline: "Find the job that fits",
@@ -121,8 +125,18 @@ export const HeroSection = ({ userType }: HeroSectionProps) => {
                             className="w-full max-w-xl"
                         >
                             {userType === 'candidate' ? (
-                                /* Waitlist form for candidates */
-                                <WaitlistForm className="mb-4" />
+                                /* Waitlist form + See How It Works for candidates */
+                                <div className="flex flex-col items-center gap-4">
+                                    <WaitlistForm className="w-full" />
+                                    <button
+                                        onClick={() => setShowDemoModal(true)}
+                                        className="group px-8 py-4 rounded-full font-medium text-lg border border-theme-border bg-theme-surface/30 hover:bg-theme-surface/60 transition-all hover:-translate-y-0.5"
+                                    >
+                                        <span className="flex items-center gap-2">
+                                            See How It Works
+                                        </span>
+                                    </button>
+                                </div>
                             ) : (
                                 /* CTA buttons for employers */
                                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -158,6 +172,9 @@ export const HeroSection = ({ userType }: HeroSectionProps) => {
             </AnimatePresence>
 
             {/* Scroll indicator removed as requested */}
+
+            {/* Demo Modal */}
+            <DemoModal isOpen={showDemoModal} onClose={() => setShowDemoModal(false)} />
         </section>
     );
 };
